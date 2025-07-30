@@ -4,6 +4,7 @@ const meaningContainerEl = document.querySelector("#meaning-container");
 const meaningEl = document.querySelector("#meaning");
 const titleEl = document.querySelector("#title");
 const audioEl = document.querySelector("#audio");
+const buttonEl = document.querySelector(".btn");
 
 async function fetchApi(word) {
   try {
@@ -30,6 +31,12 @@ async function fetchApi(word) {
     infoTextEl.innerText = `An error happend try again later`;
   }
 }
+
+buttonEl.addEventListener("click", () => {
+  if (inputEl.value) {
+    fetchApi(inputEl.value);
+  }
+});
 
 inputEl.addEventListener("keyup", (e) => {
   if (e.target.value && e.key === "Enter") {
